@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('C:/Users/VARUN/OneDrive/Desktop/background.jpeg') no-repeat center center/cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgb(162, 211, 244);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Increased width */
+            height: 50%;
+            display: flex;
+        }
+        .left-section {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .right-section {
+            flex: 1;
+        }
+        h2 {
+            text-align: center;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: rgb(1, 40, 88);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: rgb(1, 40, 88);
+        }
+        .task-list {
+            margin-top: 20px;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .delete-btn {
+            background: red;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2>To-Do List</h2>
+            <div class="input-container">
+                <input type="text" id="taskTitle" placeholder="Title">
+                <textarea id="taskDesc" placeholder="Description"></textarea>
+                <button onclick="addTask()">Save</button>
+            </div>
+        </div>
+        <div class="right-section">
+            <h3>Pending Tasks</h3>
+            <div class="task-list" id="pendingTasks"></div>
+            <h3>Completed Tasks</h3>
+            <div class="task-list" id="completedTasks"></div>
+        </div>
+    </div>
+    <script>
+        function addTask() {
+            let title = document.getElementById("taskTitle").value;
+            let desc = document.getElementById("taskDesc").value;
+            if (title === "" || desc === "") {
+                alert("Please fill out all fields.");
+                return;
+            }
+            let pendingTasks = document.getElementById("pendingTasks");
+            let taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+            taskDiv.innerHTML = `<span><strong>${title}</strong> - ${desc}</span> 
+                <button class='delete-btn' onclick='deleteTask(this)'>X</button>
+                <button onclick='completeTask(this)'>✔</button>`;
+            pendingTasks.appendChild(taskDiv);
+            document.getElementById("taskTitle").value = "";
+            document.getElementById("taskDesc").value = "";
+        }
+        
+        function deleteTask(button) {
+            button.parentElement.remove();
+        }
+        
+        function completeTask(button) {
+            let taskDiv = button.parentElement;
+            document.getElementById("completedTasks").appendChild(taskDiv);
+            button.remove();
+        }
+    </script>
+</body>
+</html>
