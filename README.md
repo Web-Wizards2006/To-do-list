@@ -15,7 +15,7 @@ The purpose of this project is to showcase my skills in web development by creat
 - JavaScript
 
 ## Usage
-Simply open the `index.html` file in your browser, and you will see the to-do list interface. You can add new tasks, mark them as completed, and delete them as needed.
+Simply open the `to-do.html` file in your browser, and you will see the to-do list interface. You can add new tasks, mark them as completed, and delete them as needed.
 
 ## Screenshots
 ![To-do List Screenshot]![image](https://github.com/user-attachments/assets/c11708f6-940c-4365-a9e4-a32eeac1ceef)
