@@ -21,4 +21,4 @@ Simply open the `to-do.html` file in your browser, and you will see the to-do li
 ![To-do List Screenshot]![image](https://github.com/user-attachments/assets/c11708f6-940c-4365-a9e4-a32eeac1ceef)
 
 ---
-*README generated on 2025-02-17 13:44:10 by Web-Wizards2006*
+*README generated on by Web-Wizards2006*
